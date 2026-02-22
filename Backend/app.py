@@ -65,4 +65,12 @@ def convert(doc_id: str, mode: str = "dyslexia"):
     units = extract_converted_units(pdf_path, mode=mode)
     return {"doc_id": doc_id, "mode": mode, "units": units}
 
+@app.get("/")
+def home():
+    return {"status": "ok", "message": "ADHD/Dyslexia Reader API running", "docs": "/docs"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 
