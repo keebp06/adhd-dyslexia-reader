@@ -1,0 +1,771 @@
+/* App shell */
+.app {
+  min-height: 100vh;
+  padding: 16px;
+  font-family: "Lexend", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: #fafafa;
+  color: #111;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.toggle {
+  display: inline-flex;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+}
+
+.toggle button {
+  border: 0;
+  padding: 8px 12px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.toggle button.active {
+  background: #111;
+  color: white;
+}
+
+.uploadBtn {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Split screen */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pane {
+  background: white;
+  border: 1px solid #e6e6e6;
+  border-radius: 18px;
+  padding: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.paneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.paneTitle {
+  font-weight: 700;
+}
+
+.pager {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pager button {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pager button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagerText {
+  font-size: 12px;
+  color: #444;
+}
+
+/* PDF */
+.pdfWrap {
+  height: 72vh;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.empty {
+  height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Converted */
+.converted {
+  height: 72vh;
+  overflow: auto;
+  padding: 8px 10px;
+}
+
+.converted.dyslexia {
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.03em;
+  max-width: 70ch;
+}
+
+.para {
+  margin: 0 0 14px 0;
+}
+
+.adhdControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.adhdControls button {
+  border: 1px solid #ddd;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.adhdControls button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.adhdProgress {
+  font-size: 12px;
+  color: #444;
+}
+
+.adhdText {
+  font-size: 26px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  max-width: 55ch;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #666;
+}
+
+
+/* Kindle-like feel */
+.kindle {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.readerTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  z-index: 2;
+}
+
+.highlightPicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+}
+
+.progressPill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  background: white;
+}
+
+/* ADHD focus card (smooth transitions) */
+.focusCard {
+  border-radius: 16px;
+  padding: 18px 18px;
+  transition: transform 180ms ease, background 180ms ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.focusText {
+  font-size: 28px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  font-weight: 650;
+  max-width: 55ch;
+}
+
+/* Dyslexia clickable “lines” */
+.dyslexiaScroll {
+  font-size: 18px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  max-width: 72ch;
+}
+
+.paraRow {
+  margin: 0 0 10px 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+  transition: background 160ms ease, transform 160ms ease;
+  cursor: pointer;
+}
+
+.paraRow:hover {
+  transform: translateY(-1px);
+  background: rgba(0,0,0,0.03);
+}
+
+.paraRow.active {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+
+/* Kindle feel */
+.kindle {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.readerTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  z-index: 2;
+}
+
+.pageFrame {
+  height: calc(72vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.pageCard {
+  width: min(700px, 100%);
+  border-radius: 18px;
+  padding: 22px 20px;
+  font-size: 28px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  font-weight: 650;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Slide animation */
+.pageCard.next {
+  animation: slideInFromRight 220ms ease both;
+}
+.pageCard.prev {
+  animation: slideInFromLeft 220ms ease both;
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Kindle feel */
+.kindle {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.readerTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  z-index: 2;
+}
+
+.pageFrame {
+  height: calc(72vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+
+.pageCard {
+  width: min(720px, 100%);
+  border-radius: 18px;
+  padding: 22px 20px;
+  font-size: 22px;      /* Paragraph page: slightly smaller than sentence-only */
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  font-weight: 600;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  user-select: text;
+}
+
+/* Slide-in animation (page flip feel) */
+.pageCard.next {
+  animation: slideInFromRight 220ms ease both;
+}
+.pageCard.prev {
+  animation: slideInFromLeft 220ms ease both;
+}
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Dyslexia view (scroll) */
+.dyslexiaScroll {
+  font-size: 18px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  max-width: 72ch;
+}
+
+.paraRow {
+  margin: 0 0 12px 0;
+  padding: 8px 10px;
+  border-radius: 12px;
+}
+
+/* Kindle feel */
+.kindle {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.readerTopbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  padding: 8px 0;
+  z-index: 3;
+}
+
+.rightTools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.highlightPicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.colorDot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 0;
+  cursor: pointer;
+}
+
+.progressMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.progressPill {
+  font-size: 12px;
+  padding: 6px 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  background: white;
+}
+
+.timeLeft {
+  font-size: 11px;
+  color: #666;
+}
+
+.progressBar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.55);
+  transition: width 220ms ease;
+}
+
+/* Page area */
+.pageFrame {
+  height: calc(72vh - 90px);
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.tapZone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 1;
+}
+
+.tapZone.left { left: 0; }
+.tapZone.right { right: 0; }
+
+/* Uncomment to visualize tap zones */
+/*
+.tapZone.left { outline: 1px dashed rgba(0,0,0,0.15); }
+.tapZone.right { outline: 1px dashed rgba(0,0,0,0.15); }
+*/
+
+.pageCard {
+  width: min(720px, 100%);
+  border-radius: 18px;
+  padding: 22px 20px;
+  font-size: 22px;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  font-weight: 600;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  user-select: text;
+  z-index: 2; /* above tap zones */
+  transition: background 180ms ease;
+}
+
+/* Slide animation = page turn feel */
+.pageCard.next { animation: slideInFromRight 220ms ease both; }
+.pageCard.prev { animation: slideInFromLeft 220ms ease both; }
+
+@keyframes slideInFromRight {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInFromLeft {
+  from { opacity: 0; transform: translateX(-18px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Dyslexia scroll view */
+.dyslexiaScroll {
+  font-size: 18px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
+  max-width: 72ch;
+}
+
+.paraRow {
+  margin: 0 0 14px 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.paraRow:hover {
+  background: rgba(0,0,0,0.03);
+}
+.paraRow.active {
+  outline: 2px solid rgba(0,0,0,0.08);
+}
+/* Dyslexia-optimized reading defaults */
+/* Dyslexia-optimized reading defaults */
+.convertedText {
+  font-family: "Atkinson Hyperlegible", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+  word-spacing: 0.08em;
+  max-width: 65ch;
+}
+
+/* ADHD mode: slightly larger and narrower for focus */
+.convertedText.adhd {
+  font-size: 1.25rem;
+  line-height: 2;
+  max-width: 55ch;
+}
+
+.focusToggle {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+.focusToggle.on {
+  border-color: #111;
+}
+
+.focusWrap {
+  padding: 12px 6px 18px;
+}
+
+.focusControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.focusControls button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+}
+.focusControls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.focusMeta {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.focusCard {
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+
+.focusHint {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.focusToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  border: 2px solid #111;
+  background: #fff;
+
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.focusToggle .toggleState {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eee;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.focusToggle.on {
+  background: #111;
+  color: #fff;
+}
+
+.focusToggle.on .toggleState {
+  background: #fff;
+  color: #111;
+}
+
+/* --- Reading Ruler Overlay (FIXED: not too dark) --- */
+.rulerHost {
+  position: relative;
+}
+
+/* keep overlay behind UI controls if needed */
+.rulerOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;            /* lower than buttons/cards if they are z-index 3+ */
+}
+
+/* MUCH lighter dim */
+.rulerShade.top,
+.rulerShade.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.12);  /* was 0.35 (too dark) */
+}
+
+/* the “reading strip” */
+.rulerBand {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  height: 80px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.20);  /* makes strip brighter */
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 9999px rgba(0,0,0,0.08) inset; /* soft edge */
+}
+
+/* --- Reading Ruler Overlay (FIXED: not too dark) --- */
+.rulerHost {
+  position: relative;
+}
+
+/* keep overlay behind UI controls if needed */
+.rulerOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;            /* lower than buttons/cards if they are z-index 3+ */
+}
+
+/* MUCH lighter dim */
+.rulerShade.top,
+.rulerShade.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.12);  /* was 0.35 (too dark) */
+}
+
+/* the “reading strip” */
+.rulerBand {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  height: 80px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.20);  /* makes strip brighter */
+  outline: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 0 9999px rgba(0,0,0,0.08) inset; /* soft edge */
+}
+
+.ttsRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.ttsSpeed {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ttsActive {
+  background: rgba(255, 255, 255, 0.65);
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.ttsInactive {
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+
+.focusWrap {
+  padding: 12px 8px;
+}
+
+.focusCard {
+  padding: 18px;
+  border-radius: 16px;
+}
+
+.paraList {
+  padding: 8px;
+}
